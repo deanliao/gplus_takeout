@@ -32,18 +32,7 @@ import os
 import shutil
 import sys
 
-
-def TraverseDir(root_dir):
-    """Returns all files under root_dir recursively.
-
-    It returns a list of (subdir, list of files in the subdir).
-    Noted that it skips empty subdirs.
-    """
-    result = []
-    for dir_name, subdirs, files in os.walk(root_dir):
-        if files:
-            result.append((dir_name, files))
-    return result
+import path_util
 
 
 def MergeDir(from_dir, dest_dir):
@@ -54,7 +43,7 @@ def MergeDir(from_dir, dest_dir):
     It also creates subdirs when needed.
     """
     logging.info('Merge directory from %s to %s', from_dir, dest_dir)
-    dir_files = TraverseDir(from_dir)
+    dir_files = path_util.TraverseDir(from_dir)
     for (subdir, files) in dir_files:
         if subdir.find(from_dir) != 0:
             logging.error('Subdir %s should begin with %s', subdir, from_dir)
