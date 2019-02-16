@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 """A tool to read photos directory, retrieve metadata and stores in db.
 """

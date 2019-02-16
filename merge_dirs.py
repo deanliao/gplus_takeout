@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 """A tool to merge multiple directories into one.
 
@@ -90,7 +90,7 @@ def main():
     dest_dir = args.dirs[-1]
     for d in from_dirs:
         if not os.path.isdir(d):
-            logging.error('Source directory does not exist: ', d)
+            logging.error('Source directory does not exist: %s', d)
             sys.exit(1)
 
     for from_dir in from_dirs:
